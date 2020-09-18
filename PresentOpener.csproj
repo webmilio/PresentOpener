@@ -14,5 +14,8 @@
     <Reference Include="Terraria">
       <HintPath>D:\Steam\steamapps\common\Terraria\Terraria.exe</HintPath>
     </Reference>
+    <Reference Include="WebmilioCommons">
+      <HintPath>..\WebmilioCommons-Releases\WebmilioCommons.dll</HintPath>
+    </Reference>
   </ItemGroup>
 </Project>

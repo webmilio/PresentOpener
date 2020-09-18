@@ -16,11 +16,11 @@ namespace PresentOpener
 		public override ConfigScope Mode => ConfigScope.ServerSide; //Server sided config.
 
 		[Label("Present")] //This is how you make a folder, essentially it's just a separate class.
-		public PresentMenu presentmenu = new PresentMenu();
+		public PresentMenu presentMenu = new PresentMenu();
 		[Label("Goodie Bag")]
 		public GoodieMenu goodiemenu = new GoodieMenu();
 		[Label("Modded Items")]
-		public ModdedMenu moddedmenu = new ModdedMenu();
+		public ModdedMenu moddedMenu = new ModdedMenu();
 
 		[SeparatePage] //To force the class into a new page, making the folder.
 		public class PresentMenu

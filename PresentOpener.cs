@@ -3,24 +3,43 @@ using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
+using WebmilioCommons.ModCompatibilities;
 
 namespace PresentOpener
 {
 	public class PresentOpener : Mod
 	{
-		public static string GithubUserName => "Plantterror"; //These 2 lines are for ModHelpers Github intergration, just in case.
-		public static string GithubProjectName => "PresentOpener";
-		internal static PresentOpenerConfig Config;
-		internal static PresentOpener Instance;
+		public static readonly string GithubUserName = "Plantterror"; //These 2 lines are for ModHelpers Github intergration, just in case.
+		public static readonly string GithubProjectName = "PresentOpener";
+
+
+        public PresentOpener()
+        {
+            Instance = this;
+        }
+
+
+        public override void Load() //Loading ModConfig and making an instance
+        {
+            Config = new PresentOpenerConfig();
+
+            ThoriumCompatibility = ModCompatibilityLoader.Instance.GetCompatibility<ThoriumCompatibility>();
+        }
+
 		public override void Unload() //Unloading ModConfig and Instance
-		{
+        {
+            ThoriumCompatibility = default;
+
 			Config = null;
 			Instance = null;
-		}
-		public override void Load() //Loading ModConfig and making an instance
-		{
-			Config = new PresentOpenerConfig();
-			Instance = new PresentOpener();
-		}
-	}
+        }
+
+
+        public static PresentOpener Instance { get; private set; }
+
+        public static PresentOpenerConfig Config { get; private set; }
+
+
+        public static ThoriumCompatibility ThoriumCompatibility { get; private set; }
+    }
 }
